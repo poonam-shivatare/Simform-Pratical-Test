@@ -1,0 +1,223 @@
+{
+	"info": {
+		"_postman_id": "9e83d240-5905-4f19-ba22-92eea5906dc1",
+		"name": "Simform Practicle test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "register user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "firstName",
+							"value": "Poonam",
+							"type": "text"
+						},
+						{
+							"key": "lastName",
+							"value": "Shivatare",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "poonam.shivatare@netprotector.net",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "poonam@123",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "917249872996",
+							"type": "text"
+						},
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/home/am-c1/Downloads/word-image-18.png"
+						}
+					],
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{SalesBaseURL}}/api/auth/signup",
+					"host": [
+						"{{SalesBaseURL}}"
+					],
+					"path": [
+						"api",
+						"auth",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"poonam.shivatare@netprotector.net\",\n    \"password\": \"poonam@123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{SalesBaseURL}}/api/auth/login",
+					"host": [
+						"{{SalesBaseURL}}"
+					],
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "All User list",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{SalesAuthToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{SalesBaseURL}}/api/user",
+					"host": [
+						"{{SalesBaseURL}}"
+					],
+					"path": [
+						"api",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get single user details",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{SalesAuthToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{SalesBaseURL}}/api/user/ca0c43ea-dfb2-4fc6-8e4b-7d8f4d065431",
+					"host": [
+						"{{SalesBaseURL}}"
+					],
+					"path": [
+						"api",
+						"user",
+						"ca0c43ea-dfb2-4fc6-8e4b-7d8f4d065431"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update user details",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{SalesAuthToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "firstName",
+							"value": "Poonam",
+							"type": "text"
+						},
+						{
+							"key": "lastName",
+							"value": "Shivatare",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "poonam.shivatare@netprotector.net",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "poonam@123",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "917249872996",
+							"type": "text"
+						},
+						{
+							"key": "image",
+							"type": "file",
+							"src": []
+						}
+					],
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{SalesBaseURL}}/api/user/update/ca0c43ea-dfb2-4fc6-8e4b-7d8f4d065431",
+					"host": [
+						"{{SalesBaseURL}}"
+					],
+					"path": [
+						"api",
+						"user",
+						"update",
+						"ca0c43ea-dfb2-4fc6-8e4b-7d8f4d065431"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

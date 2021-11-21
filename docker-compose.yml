@@ -1,0 +1,21 @@
+version: "3"
+services:
+    server:
+        build:
+            context: .
+            dockerfile: Dockerfile.server
+        restart: always
+        environment:
+            # ports
+            PORT: 8001
+            BASEURL : http://localhost:8001
+            # S3 Configuration
+            AWS_BUCKET : -- AWS_BUCKET --
+            AWS_ACCESS_KEY_ID : -- AWS_ACCESS_KEY_ID --
+            AWS_SECRET_ACCESS_KEY : -- AWS_SECRET_ACCESS_KEY --
+            AWS_REGION :  -- REGION --
+            # DB
+            DATABASE_URL : DATABASE_URL
+            ACCESS_TOKEN : Access_token
+        network_mode: "host"
+        

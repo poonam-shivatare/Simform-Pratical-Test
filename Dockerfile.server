@@ -1,0 +1,42 @@
+# add node version
+FROM node:14
+
+# arguments
+ARG PORT
+
+# node ownership in docker image
+RUN mkdir -p /home/node/Simform-Pratical-Test/server/node_modules \
+    && chown -R node:node /home/node/Simform-Pratical-Test
+
+# change to non-root NODE user
+# to ensure all the application files
+# are owned by the NODE user
+USER node  
+
+
+#########################
+#        server         #
+#########################
+
+
+# set work directory
+WORKDIR /home/node/Simform-Pratical-Test/server/
+
+# Copy app dependencies
+COPY --chown=node:node server/package*.json ./
+
+# Install app dependencies
+RUN npm install
+
+# copy server code files
+COPY --chown=node:node server/ .
+
+#########################
+#      application      #
+#########################
+
+# Expose port 8000 where our app is running
+EXPOSE ${PORT}
+
+# start our app server
+CMD ["npm", "start"]
